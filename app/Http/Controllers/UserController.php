@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginFormRequest;
+use App\Http\Requests\RegisterFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,15 +11,9 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function register(Request $request)
+    public function register(RegisterFormRequest $request)
     {
         // dd($request->all());
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
-
         // Vérifiez le reCAPTCHA
         $recaptchaResponse = $request->input('g-recaptcha-response');
         $response = file_get_contents(
@@ -29,7 +25,7 @@ class UserController extends Controller
             // Le reCAPTCHA a échoué, redirigez l'utilisateur vers la page d'inscription avec une erreur
             return back()->withErrors([
                 'g-recaptcha-response' => 'La vérification reCAPTCHA a échoué. Veuillez réessayer.',
-            ]);
+            ])->withInput();
         }
 
         // Le reCAPTCHA a réussi, continuez avec l'inscription
@@ -44,12 +40,9 @@ class UserController extends Controller
         return redirect()->route('home');
     }
 
-    public function login(Request $request)
+    public function login(LoginFormRequest $request)
     {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+        $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             return redirect()->route('home');

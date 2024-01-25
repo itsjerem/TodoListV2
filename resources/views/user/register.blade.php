@@ -63,6 +63,9 @@
                 </div>
             </div>
             <div class="m:col-span-2 mt-6 g-recaptcha" data-sitekey="6LeK-lopAAAAAOuB5I4u1P6ja9_VkY-5TtCljIJs"></div>
+            @error('g-recaptcha-response')
+                <span class="text-red-500 italic">{{ $message }}</span>
+            @enderror
             <div class="sm:col-span-2 mt-6">
                 <button type="submit"
                     class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 sm:text-sm">
