@@ -1,7 +1,6 @@
 <nav class="bg-indigo-500 p-4 fixed w-full top-0 z-50">
     <div class="container mx-auto flex items-center justify-between">
         <a href="{{ url('/') }}" class="text-white text-lg font-semibold"><i class="fas fa-list"></i> TodoList</a>
-
         <div class="flex items-center">
             @if (auth()->user())
                 <div class="relative group inline-block">

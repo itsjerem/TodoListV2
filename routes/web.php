@@ -22,6 +22,7 @@ Route::post('logout', [UserController::class, 'logout'])->name('logout');
 // Routes pour le contrôleur de ressources TaskController
 // Cela crée les routes pour les actions index, create, store, show, edit, update et destroy (CRUD) avec la methode resource de Laravel
 Route::resource('tasks', TaskController::class);
+Route::get('calendar', [TaskController::class, 'calendar'])->name('calendar');
 
 // Routes pour le contrôleur de ressources CategoryController
 Route::resource('categories', CategoryController::class);

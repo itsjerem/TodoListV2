@@ -5,11 +5,20 @@
 @section('content')
     <div class="flex flex-col m-8">
         <div class="flex justify-between items-center">
-            <h1 class="text-2xl font-bold mb-5">👋 <span class="font-light">Bienvenue dans la</span> <i class="fas fa-list"></i> TodoList !</h1>
-            <a href="{{ route('categories.index') }}"
-                class="bg-gray-100 opacity-40 shadow border border-gray-200 hover:bg-indigo-700 hover:opacity-100 hover:text-white text-black font-bold py-2 px-4 rounded">
-                Ajouter une catégorie
-            </a>
+            <h1 class="text-2xl font-bold mb-5">👋 <span class="font-light">Bienvenue dans la</span> <i
+                    class="fas fa-list"></i> TodoList !</h1>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                <a href="{{ route('calendar') }}"
+                    class="bg-gray-100 opacity-40 shadow border border-gray-200 text-black font-bold py-2 px-4 rounded mr-2 cursor-not-allowed"
+                    onclick="event.preventDefault();">
+                    <i class="fas fa-calendar"></i> Vue calendrier
+                </a>
+                <a href="{{ route('categories.index') }}"
+                    class="bg-gray-100 opacity-40 shadow border border-gray-200 hover:bg-indigo-700 hover:opacity-100 hover:text-white text-black font-bold py-2 px-4 rounded">
+                    <i class="fas fa-plus"></i> Ajouter une catégorie
+                </a>
+            </div>
+
         </div>
         @foreach ($categories as $category)
             <div>

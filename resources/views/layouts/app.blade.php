@@ -9,6 +9,8 @@
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href='https://unpkg.com/@fullcalendar/common@5/main.min.css' rel='stylesheet' />
+    <link href='https://unpkg.com/@fullcalendar/daygrid@5/main.min.css' rel='stylesheet' />
 
 </head>
 

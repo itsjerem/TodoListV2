@@ -76,4 +76,16 @@ class TaskController extends Controller
         $task->delete();
         return redirect()->route('home');
     }
+
+    public function calendar()
+    {
+        $tasks = Task::all()->map(function ($task) {
+            return [
+                'title' => $task->name,
+                'start' => $task->date,
+            ];
+        });
+
+        return view('tasks.calendar', ['tasks' => $tasks]);
+    }
 }
