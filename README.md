@@ -56,6 +56,21 @@
 
 <p align="center">
   It's a Todolist for N3-Webtech Laravel mini-project
+<img src="https://imgur.com/fdPhGKF" width="650" alt="tarkov">
+</p>
+
+<br>
+
+<ul>
+  <li>Authentication available to assign a task to a user</li>
+  <li>Possibility to Create, Read, Update, Delete tasks and tasks categories</li>
+  <li>Pagination only on the index.category view </li>
+</ul>
+
+<br>
+
+<p>
+    Project made with Laravel, Tailwindcss, PostgreSQL
 </p>
 
 ### Prerequisites
@@ -77,7 +92,9 @@ npm install npm@latest -g
 
 3. Copy the `.env.example` file to `.env` and configure your environment variables.
 
-4. Start the server: `php artisan serve`
+4. Create data base and DataSeeder: `php artisan migrate:fresh --seed`
+
+5. Start the server: `php artisan serve`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
