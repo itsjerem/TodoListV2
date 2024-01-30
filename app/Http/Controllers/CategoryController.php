@@ -54,8 +54,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $category->update($request->all());
-        return redirect()->route('categories.index');
+        $validatedData = $request->validate([
+            'name' => 'required|max:128',
+            'color' => 'required|max:10',
+        ]);
+
+        $category->update($validatedData);
+
+        return redirect()->route('home');
     }
 
     /**

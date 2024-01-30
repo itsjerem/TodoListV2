@@ -9,7 +9,11 @@
     <a href="{{ route('categories.create') }}">Créer une nouvelle catégorie</a>
 
     @foreach ($categories as $category)
-        <h2>{{ $category->name }}</h2>
+        <h2>
+            <a href="{{ route('categories.show', $category) }}">
+                {{ $category->name }}
+            </a>
+        </h2>
 
         @foreach ($category->tasks as $task)
             <div>

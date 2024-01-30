@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskFormRequest;
 use App\Models\Task;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -23,16 +25,18 @@ class TaskController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('tasks.create', compact('categories'));
+        $users = User::all();
+
+        return view('tasks.create', compact('categories', 'users')); // Passer les utilisateurs à la vue
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TaskFormRequest $request)
     {
-        $task = Task::create($request->all());
-        return redirect()->route('tasks.index');
+        $task = Task::create($request->except('_token'));
+        return redirect()->route('tasks.show', $task->id);
     }
 
     /**
@@ -49,16 +53,19 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
         $categories = Category::all();
-        return view('tasks.edit', compact('task', 'categories'));
+        $users = User::all(); // Récupérer tous les utilisateurs
+
+        return view('tasks.edit', compact('task', 'categories', 'users')); // Passer les utilisateurs à la vue
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Task $task)
+    public function update(TaskFormRequest $request, Task $task)
     {
         $task->update($request->all());
-        return redirect()->route('tasks.index');
+
+        return redirect()->route('tasks.show', $task->id);
     }
 
     /**
@@ -67,6 +74,6 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         $task->delete();
-        return redirect()->route('tasks.index');
+        return redirect()->route('home');
     }
 }
