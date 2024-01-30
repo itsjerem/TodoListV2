@@ -15,8 +15,12 @@ class CategoriesSeeder extends Seeder
     public function run()
     {
         $categories = [
-            ['name' => 'Travail', 'color' => '#1F2937'], // Cool Gray 800
-            ['name' => 'Personnel', 'color' => '#10B981'], // Green 500
+            ['name' => 'Travail', 'color' => '#3B82F6'],
+            ['name' => 'Personnel', 'color' => '#10B981'],
+            ['name' => 'Famille', 'color' => '#b5a0ee'], // Purple 300
+            ['name' => 'Loisirs', 'color' => '#F59E0B'], // Yellow 400
+            ['name' => 'Urgent', 'color' => '#EF4444'], // Red 500
+            ['name' => 'Autre', 'color' => '#1F2937'], // Y
         ];
 
         foreach ($categories as $category) {

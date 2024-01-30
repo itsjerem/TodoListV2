@@ -3,26 +3,68 @@
 @section('title', 'Catégories')
 
 @section('content')
-    <h1>Catégories</h1>
-
-    @foreach ($categories as $category)
-        <div class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
-            <div class="relative max-w-2xl mx-auto">
-                <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
-                    aria-hidden="true">
-                    <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
-                        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-                    </div>
+    <div class="flex flex-col m-8">
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl font-bold mb-5">Catégories</h1>
+            <a href="{{ route('categories.create') }}"
+                class="mb-5 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                title="Créer une catégorie">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="h-5 w-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
+                    </path>
+                </svg>
+            </a>
+        </div>
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Nom
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Couleur
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach ($categories as $category)
+                                <tr>
+                                    <td class="w-1/3 px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">{{ $category->name }}</div>
+                                    </td>
+                                    <td class="w-1/3 px-6 py-4 whitespace-nowrap">
+                                        <span class="w-7 h-6 inline-block rounded-full border-2 border-gray-300"
+                                            style="background-color: {{ $category->color }}"></span>
+                                    </td>
+                                    <td class="w-1/3 px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="{{ route('categories.show', $category) }}"
+                                            class="text-indigo-600 hover:text-indigo-900 mr-4">Afficher</a>
+                                        <a href="{{ route('categories.edit', $category) }}"
+                                            class="text-indigo-600 hover:text-indigo-900 mr-4">Modifier</a>
+                                        <form action="{{ route('categories.destroy', $category) }}" method="POST"
+                                            class="inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="text-red-600 hover:text-red-900">Supprimer</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="mx-auto max-w-2xl text-center">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ $category->name }}</h2>
-                <p class="mt-2 text-lg leading-8 text-gray-600">{{ $category->color }}</p>
-                <a href="{{ route('categories.edit', $category) }}"
-                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Modifier
-                </a>
-            </div>
         </div>
-    @endforeach
+    </div>
 @endsection

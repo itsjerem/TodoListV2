@@ -32,9 +32,15 @@
                 </div>
                 <div>
                     <label for="color" class="block text-sm font-semibold leading-6 text-gray-900">Couleur</label>
-                    <div class="mt-2.5">
+                    <div class="mt-2.5 flex items-center">
                         <input id="color" type="text" name="color" value="{{ $category->color }}"
                             class="{{ $errors->has('color') ? 'border-2 border-red-500' : '' }} block w-full border-0 rounded-md px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        <input id="color-picker" type="color" name="color-picker" value="{{ $category->color }}"
+                            class="hidden"
+                            onchange="document.getElementById('color').value = this.value; document.getElementById('color-preview').style.backgroundColor = this.value">
+                        <span id="color-preview" class="w-7 h-6 ml-2 rounded-full cursor-pointer border-2 border-gray-300"
+                            style="background-color: {{ $category->color }}"
+                            onclick="document.getElementById('color-picker').click()"></span>
                         @error('color')
                             <span class="text-red-500 italic">{{ $message }}</span>
                         @enderror

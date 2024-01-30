@@ -14,11 +14,22 @@
         </div>
         <div class="mx-auto max-w-2xl text-center">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ $category->name }}</h2>
-            <p class="mt-2 text-lg leading-8 text-gray-600">{{ $category->color }}</p>
+            <div class="flex items-center justify-center mt-2">
+                <span class="mr-2 text-lg leading-8 text-gray-600">{{ $category->color }}</span>
+                <span class="w-6 h-6 rounded-full border-2 border-gray-300" style="background-color: {{ $category->color }}"></span>
+            </div>
             <a href="{{ route('categories.edit', $category) }}"
-                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                class="mt-10 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Modifier
             </a>
+            <form class="mt-5" method="POST" action="{{ route('categories.destroy', $category) }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit"
+                    class="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    Supprimer
+                </button>
+            </form>
         </div>
     </div>
 @endsection

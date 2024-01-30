@@ -15,8 +15,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks.index', compact('tasks'));
+        $categories = Category::with('tasks')->get();
+        return view('welcome', ['categories' => $categories]);
     }
 
     /**
@@ -27,7 +27,7 @@ class TaskController extends Controller
         $categories = Category::all();
         $users = User::all();
 
-        return view('tasks.create', compact('categories', 'users')); // Passer les utilisateurs à la vue
+        return view('tasks.create', compact('categories', 'users'));
     }
 
     /**
@@ -53,7 +53,7 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
         $categories = Category::all();
-        $users = User::all(); // Récupérer tous les utilisateurs
+        $users = User::all();
 
         return view('tasks.edit', compact('task', 'categories', 'users')); // Passer les utilisateurs à la vue
     }
