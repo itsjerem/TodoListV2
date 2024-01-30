@@ -101,7 +101,7 @@ Distributed under the MIT License. See `thereISnoLICENSE.txt` for more informati
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/buna) - jeremytroccaz@gmail.com
+Your Name - [@buna](https://twitter.com/buna) - jeremytroccaz@gmail.com
 
 Project Link: [https://github.com/itsjerem/TodoListV2.git](https://github.com/itsjerem/TodoListV2.git)
 
