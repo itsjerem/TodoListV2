@@ -63,6 +63,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="m-4 flex justify-center">
+                        {{ $categories->links() }}
+                    </div>
                 </div>
             </div>
         </div>
