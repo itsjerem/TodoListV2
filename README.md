@@ -62,9 +62,16 @@
 <br>
 
 <ul>
-  <li>Authentication available to assign a task to a user</li>
   <li>Possibility to Create, Read, Update, Delete tasks and tasks categories</li>
+  <li>Authentication available to assign a task to a user (no other uses)</li>
   <li>Pagination only on the index.category view </li>
+  <li>FormRequest for every form</li>
+  <li>Color picker selector on categories edit pages</li>
+  <li>Google reCAPTCHA on register page form</li>
+  <li>index.tasks exist but not used</li>
+  <li>Nice tailwind "Post-it" design</li>
+  <li>All views, CRUD working -> contact me if it's not working</li>
+
 </ul>
 
 <br>
