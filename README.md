@@ -56,7 +56,7 @@
 
 <p align="center">
   It's a Todolist for N3-Webtech Laravel mini-project
-<img src="https://imgur.com/fdPhGKF" width="650" alt="tarkov">
+<img src="https://i.imgur.com/fdPhGKF.png" width="650" alt="tarkov">
 </p>
 
 <br>
