@@ -9,7 +9,7 @@
     <img src="https://avatars.githubusercontent.com/u/127933072?v=4" alt="LLMJ" width="80" height="80">
   </a>
 
-  <h3 align="center">Project Nemo: Personal Info</h3>
+  <h3 align="center">Project Laravel: Personal Info</h3>
 
   <p align="center">
     Information management of Todolist staff
@@ -71,15 +71,13 @@ npm install npm@latest -g
 
 ### Installation
 
-1. Copie `.env.example` into `.env` and
+1. Clone the repository: `git clone https://github.com/username/project.git`
 
-2. Clone the repository: `git clone https://github.com/username/project.git`
+2. Install dependencies: `composer install`
 
-3. Install dependencies: `composer install`
+3. Copy the `.env.example` file to `.env` and configure your environment variables.
 
-4. Copy the `.env.example` file to `.env` and configure your environment variables.
-
-5. Start the server: `php artisan serve`
+4. Start the server: `php artisan serve`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
