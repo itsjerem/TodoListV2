@@ -71,13 +71,14 @@
   <li>index.tasks exist but not used</li>
   <li>Nice tailwind "Post-it" design</li>
   <li>All views, CRUD working -> contact me if it's not working</li>
+  <li>FullCalendar not working for calendar view</li>
 
 </ul>
 
 <br>
 
 <p>
-    Project made with Laravel, Tailwindcss, PostgreSQL
+    Project made with Laravel, Tailwindcss, PostgreSQL, Font-awesome, FullCalendar
 </p>
 
 ### Prerequisites
